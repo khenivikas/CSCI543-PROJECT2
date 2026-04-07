@@ -2,12 +2,15 @@
 #include "duckdb/main/extension/extension_loader.hpp"
 
 #include "hnsw/hnsw.hpp"
+#include "lsh/lsh.hpp"
 
 namespace duckdb {
 
 static void LoadInternal(ExtensionLoader &loader) {
 	// Register the HNSW index module
 	HNSWModule::Register(loader);
+	// Register the LSH index module
+	LSHModule::Register(loader);
 }
 
 void VssExtension::Load(ExtensionLoader &loader) {
